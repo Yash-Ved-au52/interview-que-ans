@@ -1,0 +1,181 @@
+React.js Interview Questions & Answers
+
+1. What is React.js?
+   - React.js is a JavaScript library for building user interfaces, mainly for single-page applications. It allows developers to build reusable UI components and manage application state efficiently.
+
+2. Why use React.js?
+   - Fast rendering with Virtual DOM.
+   - Component-based architecture for reusability.
+   - Easy to learn with JSX syntax.
+   - Strong community support and a rich ecosystem of libraries.
+
+3. What are components in React?
+   - Components are reusable building blocks of a React application.
+   - Two types:
+     - **Functional Components**: Defined using functions and use React hooks.
+     - **Class Components**: Defined using ES6 classes and have lifecycle methods.
+
+4. What is JSX?
+   - JSX (JavaScript XML) allows writing HTML-like syntax inside JavaScript.
+   - Example:
+     ```jsx
+     const element = <h1>Hello, React!</h1>;
+     ```
+
+5. What is the Virtual DOM?
+   - Virtual DOM is a lightweight copy of the real DOM.
+   - React updates Virtual DOM first and then syncs changes to the real DOM efficiently.
+   - This optimizes performance and reduces unnecessary re-renders.
+
+6. What are props in React?
+   - Props (short for properties) are used to pass data between components.
+   - Props are **immutable** (cannot be changed inside the component).
+   - Example:
+     ```jsx
+     function Welcome(props) {
+       return <h1>Hello, {props.name}!</h1>;
+     }
+     ```
+
+7. What is state in React?
+   - State is a built-in object used to store component-specific data.
+   - Unlike props, state is **mutable** and can be updated.
+   - Example:
+     ```jsx
+     import { useState } from 'react';
+     function Counter() {
+       const [count, setCount] = useState(0);
+       return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
+     }
+     ```
+
+8. Difference between props and state?
+   - Props are read-only and passed from parent to child.
+   - State is mutable and controlled within the component.
+
+9. What is React Router?
+   - React Router is used for navigation in React applications.
+   - Example:
+     ```jsx
+     import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+     function App() {
+       return (
+         <Router>
+           <Routes>
+             <Route path="/" element={<Home />} />
+             <Route path="/about" element={<About />} />
+           </Routes>
+         </Router>
+       );
+     }
+     ```
+
+10. What are React Hooks?
+    - Hooks let you use state and other React features in functional components.
+    - Common hooks: `useState`, `useEffect`, `useContext`, `useReducer`.
+
+11. What is the useEffect hook?
+    - `useEffect` is used to handle side effects like API calls, subscriptions, and DOM manipulation.
+    - Example:
+      ```jsx
+      useEffect(() => {
+        console.log('Component Mounted');
+        return () => console.log('Component Unmounted');
+      }, []);
+      ```
+
+12. What is Context API?
+    - Context API helps manage global state without prop drilling.
+    - Example:
+      ```jsx
+      const MyContext = React.createContext();
+      ```
+
+13. What are controlled and uncontrolled components?
+    - Controlled: Form elements whose value is controlled by state.
+    - Uncontrolled: Form elements managed by the DOM.
+
+14. What is lazy loading in React?
+    - Lazy loading delays loading components until needed to improve performance.
+
+15. Why are keys used in React lists?
+    - Keys help React identify elements in a list for efficient updates.
+    - Example:
+      ```jsx
+      {items.map(item => <li key={item.id}>{item.name}</li>)}
+      ```
+
+16. How to handle API calls in React?
+    - Using `fetch` or `axios` inside `useEffect`.
+    - Example:
+      ```jsx
+      useEffect(() => {
+        fetch('https://api.example.com/data')
+          .then(response => response.json())
+          .then(data => setData(data));
+      }, []);
+      ```
+
+17. What is React Fragment?
+    - A way to group elements without adding extra nodes in the DOM.
+    - Example:
+      ```jsx
+      <>
+        <h1>Title</h1>
+        <p>Description</p>
+      </>
+      ```
+
+18. How to optimize a React app?
+    - Use `React.memo` to prevent unnecessary re-renders.
+    - Optimize state updates and component re-renders.
+    - Use lazy loading for better performance.
+    - Split large bundles using `React.lazy` and `Suspense`.
+
+19. What is Redux in React?
+    - Redux is a state management library used to manage application-wide states.
+    - It follows a **unidirectional data flow** with actions, reducers, and a store.
+
+20. How is error handling done in React?
+    - Using Error Boundaries or try-catch in async operations.
+    - Example of an Error Boundary:
+      ```jsx
+      class ErrorBoundary extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { hasError: false };
+        }
+        static getDerivedStateFromError(error) {
+          return { hasError: true };
+        }
+        render() {
+          if (this.state.hasError) {
+            return <h1>Something went wrong.</h1>;
+          }
+          return this.props.children;
+        }
+      }
+      ```
+
+21. What is the difference between useMemo and useCallback?
+    - `useMemo`: Returns a memoized value.
+    - `useCallback`: Returns a memoized function.
+
+22. What is React Portal?
+    - React Portal is used to render elements outside the main DOM hierarchy.
+    - Example:
+      ```jsx
+      ReactDOM.createPortal(<ChildComponent />, document.getElementById('portal-root'));
+      ```
+
+23. What are Higher Order Components (HOC)?
+    - A function that takes a component and returns a new component.
+
+24. What is Server-Side Rendering (SSR) in React?
+    - SSR renders pages on the server instead of the client for better performance.
+
+25. What is hydration in React?
+    - Hydration is the process where React converts static HTML generated by SSR into a fully interactive app.
+
+These are some important React.js interview questions and answers that will help you in your preparation.
+
